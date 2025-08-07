@@ -1,0 +1,179 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+@keyframes ball-move {
+
+    10% {
+        transform: translateX(-180px);
+        -webkit-transform: translateX(-180px);
+        -moz-transform: translateX(-180px);
+        -ms-transform: translateX(-180px);
+        -o-transform: translateX(-180px);
+    }
+
+    20%,
+    40% {
+        transform: translate(-180px, 235px);
+        -webkit-transform: translate(-180px, 235px);
+        -moz-transform: translate(-180px, 235px);
+        -ms-transform: translate(-180px, 235px);
+        -o-transform: translate(-180px, 235px);
+    }
+
+    30% {
+        transform: translate(10px, 235px);
+        -webkit-transform: translate(10px, 235px);
+        -moz-transform: translate(10px, 235px);
+        -ms-transform: translate(10px, 235px);
+        -o-transform: translate(10px, 235px);
+    }
+
+
+    50%,
+    70% {
+        transform: translate(-180px, 480px);
+        -webkit-transform: translate(-180px, 480px);
+        -moz-transform: translate(-180px, 480px);
+        -ms-transform: translate(-180px, 480px);
+        -o-transform: translate(-180px, 480px);
+    }
+
+    60% {
+        transform: translate(10px, 480px);
+        -webkit-transform: translate(10px, 480px);
+        -moz-transform: translate(10px, 480px);
+        -ms-transform: translate(10px, 480px);
+        -o-transform: translate(10px, 480px);
+    }
+
+
+
+    80% {
+        transform: translate(-180px, 0);
+        -webkit-transform: translate(-180px, 0);
+        -moz-transform: translate(-180px, 0);
+        -ms-transform: translate(-180px, 0);
+        -o-transform: translate(-180px, 0);
+    }
+
+    100% {
+        transform: translate(0, 0);
+        -webkit-transform: translate(0, 0);
+        -moz-transform: translate(0, 0);
+        -ms-transform: translate(0, 0);
+        -o-transform: translate(0, 0);
+    }
+
+
+}
+
+@keyframes ball-up {
+
+    0% {
+        opacity: 100%;
+    }
+
+    50% {
+        transform: translateX(-180px);
+        -webkit-transform: translateX(-180px);
+        -moz-transform: translateX(-180px);
+        -ms-transform: translateX(-180px);
+        -o-transform: translateX(-180px);
+        opacity: 100%;
+    }
+
+    90% {
+        transform: translate(-180px, -480px);
+        -webkit-transform: translate(-180px, -480px);
+        -moz-transform: translate(-180px, -480px);
+        -ms-transform: translate(-180px, -480px);
+        -o-transform: translate(-180px, -480px);
+        opacity: 100%;
+    }
+
+    100% {
+        transform: translate(-180px, -480px);
+        -webkit-transform: translate(-180px, -480px);
+        -moz-transform: translate(-180px, -480px);
+        -ms-transform: translate(-180px, -480px);
+        -o-transform: translate(-180px, -480px);
+        opacity: 0;
+    }
+}
+
+.container {
+    width: 700px;
+    height: 600px;
+    margin: 20px auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.e-letter,
+.l-letter {
+    display: grid;
+    grid-template-columns: repeat(3, 90px);
+    grid-template-rows: repeat(7, 80px);
+    position: relative;
+}
+
+.e-letter div,
+.l-letter div {
+    background-color: #333;
+    color: white;
+}
+
+.e-letter .one,
+.l-letter .one {
+    grid-area: 1/1/span 7/2;
+}
+
+.e-letter .two {
+    grid-area: 1/2/2/4;
+}
+
+.e-letter .three {
+    grid-area: 4/2/4/4;
+}
+
+.e-letter .four,
+.l-letter .two {
+    grid-area: 7/2/7/4;
+}
+
+.e-letter .ball,
+.l-letter .ball {
+    width: 50px;
+    height: 50px;
+    background-color: #FF8F00;
+    position: absolute;
+    margin: 15px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+.e-letter .ball {
+    right: 0;
+    animation-name: ball-move;
+    animation-duration: 3s;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+
+}
+
+.l-letter .ball {
+    bottom: 0;
+    right: 0;
+    animation-name: ball-up;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+    animation-delay: 3s;
+    opacity: 0;
+}
